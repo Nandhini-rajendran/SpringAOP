@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd " xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+
+    <!-- This is required only in annotation based AOP support -->
+
+
+    <aop:aspectj-autoproxy/>
+
+    <bean class="com.loonycorn.AspectConfig" id="myPointcutAspect"/>
+
+
+    <bean class="com.loonycorn.pointcuts.Item" id="itemBeanOne">
+
+    <property value="101" name="itemId"/>
+
+    <property value="Milk" name="itemName"/>
+
+    <property value="10.25" name="itemPrice"/>
+
+    <property value="5" name="availableQuantity"/>
+
+</bean>
+
+
+    <bean class="com.loonycorn.pointcuts.Item" id="itemBeanTwo">
+
+    <property value="102" name="itemId"/>
+
+    <property value="Bread" name="itemName"/>
+
+    <property value="8.25" name="itemPrice"/>
+
+    <property value="10" name="availableQuantity"/>
+
+</bean>
+
+
+    <bean class="com.loonycorn.pointcuts.ItemList" id="listBean">
+
+
+    <property name="items">
+
+
+    <list>
+
+    <ref bean="itemBeanOne"/>
+
+    <ref bean="itemBeanTwo"/>
+
+</list>
+
+</property>
+
+</bean>
+
+</beans>
